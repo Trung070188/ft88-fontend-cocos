@@ -1,8 +1,11 @@
-import { _decorator, AsyncDelegate, Component, Node } from 'cc';
+import { _decorator, AsyncDelegate, Component, EditBox, Node } from 'cc';
 const { ccclass, property } = _decorator;
 
 @ccclass('HttpRequest')
 export class HttpRequest extends Component {
+    private _isReturn = false;
+    public _login: String = "";
+    public _password: String = "";
     start() {
         // fetch("http://localhost:8487/api/login", {
         //     method: "POST",
@@ -30,12 +33,33 @@ export class HttpRequest extends Component {
         // this.banks();
     }
 
+    editInputing(input: string, event: EditBox, custom: string){
+        this._login = input;
+    }
+    editBegan(event: EditBox, custom: string){
+       console.log("bắt đầu chỉnh sửa");
+    }
+
+    editEnd(event: EditBox, custom: string) {
+        // if(this._isReturn){
+        //     return;
+        // }
+        console.log("_login: " + this._login);
+        console.log("kết thúc chỉnh sửa");
+    }
+
+    editReturn(event: EditBox, custom: string){
+        this._isReturn = true;
+        console.log("_login: " + this._login);
+        console.log("xác nhận enter");
+    }
+
     update(deltaTime: number) {
         
     }
-    banks()
+    async banks()
     {
-        fetch("http://localhost:8487/api/banks", {
+       await fetch("http://localhost:8487/api/banks", {
             method: "GET",
             headers: {
                 "Content-Type": "application/json",
