@@ -6,6 +6,8 @@ const { ccclass, property } = _decorator;
 @ccclass('UserInfoCtr')
 export class UserInfoCtr extends Component {
     @property({type: Label})
+    userInfo: Label;
+    @property({type: Label})
     username: Label;
     @property({type: Label})
     account: Label;
@@ -17,13 +19,23 @@ export class UserInfoCtr extends Component {
     email: Label;
     @property({type: Label})
     phone: Label;
+    @property({type: Node})
+    popupInfo: Node;
+    @property({type: Label})
+    userAccountInfo: Label;
+
+    
     start() {
-        this.username.string = UserDataStore.instance.data.username;
-        this.accountType.string = UserDataStore.instance.data.account_type;
-        this.account.string = UserDataStore.instance.data.account;
-        this.password.string = UserDataStore.instance.data.password;
-        this.email.string = UserDataStore.instance.data.email;
-        this.phone.string = UserDataStore.instance.data.phone;
+        this.popupInfo.active = false;
+        let data = UserDataStore.instance.data;
+        this.userInfo.string = data.username;
+        this.username.string = data.username;
+        this.accountType.string = data.account_type;
+        this.account.string = data.account;
+        this.userAccountInfo.string = data.account;
+        this.password.string = data.password;
+        this.email.string = data.email;
+        this.phone.string = data.phone;
     }
 
     update(deltaTime: number) {
@@ -32,6 +44,14 @@ export class UserInfoCtr extends Component {
     btnClose()
     {
         director.loadScene("scene");
+    }
+    btnUserInfo()
+    {
+        this.popupInfo.active = true;
+    }
+    btnOut()
+    {
+        this.popupInfo.active = false;
     }
 }
 

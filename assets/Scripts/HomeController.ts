@@ -29,28 +29,32 @@ export class HomeController extends Component {
             this.Login.active = false;
             this.Register.active = false;
             this.CashIn.active = true;
-    
-            fetch("http://localhost:8487/api/showInfo", {
-                method: "GET",
-                headers: {
-                    "Content-Type": "application/json",
-                    "Authorization": `Bearer ${Cokkies.getCookie("token")}`
-                }
-            })
-            .then(response => {
-                if (!response.ok) {
-                    throw new Error('Network response was not ok');
-                }
-                return response.json();
-            })
-            .then(data => {
-                UserDataStore.instance.setData(data.data);
+            if(UserDataStore.instance.data == null)
+            {
+                fetch("http://localhost:8487/api/showInfo", {
+                    method: "GET",
+                    headers: {
+                        "Content-Type": "application/json",
+                        "Authorization": `Bearer ${Cokkies.getCookie("token")}`
+                    }
+                })
+                .then(response => {
+                    if (!response.ok) {
+                        throw new Error('Network response was not ok');
+                    }
+                    return response.json();
+                })
+                .then(data => {
+                    UserDataStore.instance.setData(data.data);
+                    this.userInfoName.string = UserDataStore.instance.data.username;
+                })
+                .catch(error => {
+                    console.log('Request failed', error);
+                });
+            } 
+            else {
                 this.userInfoName.string = UserDataStore.instance.data.username;
-            })
-            .catch(error => {
-                console.log('Request failed', error);
-            });
-            
+            } 
         }
         else {
             Cokkies.eraseCookie("token");
