@@ -10,10 +10,16 @@ interface UserData {
     password: string;
     created_at: string;
 }
+interface BankData {
+    label: string;
+    value: string;
+    
+}
 @ccclass('UserDataStore')
 export class UserDataStore extends Component {
     private static _instance: UserDataStore | null = null;
     public data: UserData | null = null;
+    public dataBank: Array<BankData> = [];
     protected onLoad(): void {
         
     }
@@ -31,6 +37,17 @@ export class UserDataStore extends Component {
 
     public getData(): UserData | null {
         return this.data;
+    }
+    public addDataBank(data: BankData) {
+        this.dataBank.push(data);
+    }
+
+    public setDataBank(data: Array<BankData>) {
+        this.dataBank = data;
+    }
+
+    public getDataBank(): Array<BankData> {
+        return this.dataBank;
     }
     
 }

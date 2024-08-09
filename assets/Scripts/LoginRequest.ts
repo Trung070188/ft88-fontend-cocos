@@ -40,6 +40,7 @@ export class LoginRequest extends Component {
             const expiryTime = new Date().getTime() + (24 * 60 * 60 * 1000);
             Cokkies.setCookie("token", data.access_token, 1);
             Cokkies.setCookie("tokenExpiry", expiryTime.toString(), 1);
+            director.loadScene("scene");
         })
         .catch(error => {
             console.log('Request failed', error);
@@ -52,6 +53,10 @@ export class LoginRequest extends Component {
     public btnLoadSceneHome()
     {
         director.loadScene("scene");
+    }
+    public btnShowPass()
+    {
+        this.password.inputFlag = EditBox.InputFlag.DEFAULT;
     }
    
 }

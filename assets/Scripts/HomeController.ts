@@ -19,9 +19,12 @@ export class HomeController extends Component {
     IconInfo: Node;
     @property({type: Label})
     account: Label;
+    @property({type: Node})
+    sidePopup: Node;
 
     protected onLoad(): void {
         this.NodeInfo.active = false;
+        this.sidePopup.active = false;
         const token = Cokkies.getCookie("token");
         const tokenExpiry = Cokkies.getCookie("tokenExpiry");
         if(token && tokenExpiry && new Date().getTime() < parseInt(tokenExpiry))
@@ -89,10 +92,15 @@ export class HomeController extends Component {
     btnTestOut()
     {
         this.NodeInfo.active = false;
+        this.sidePopup.active = false;
     }
     btnIconInfo()
     {
         director.loadScene("userInfo");
+    }
+    btnShowSidePopup()
+    {
+        this.sidePopup.active = true;
     }
    
 }
