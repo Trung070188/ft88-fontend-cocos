@@ -1,11 +1,12 @@
-import { _decorator, Component, director, EditBox, Node } from 'cc';
-import { Cokkies } from './Cokkies';
+import { _decorator, Component, EditBox, Node, AsyncDelegate, director } from 'cc';
 const { ccclass, property } = _decorator;
 
-@ccclass('LoginRequest')
-export class LoginRequest extends Component {
+@ccclass('Resgister')
+export class Resgister extends Component {
     public _login: String = '';
     public _password: String = '';
+    public _phone: String = '';
+    public _accountType = 0;
     @property({type: EditBox})
     password: EditBox;
 
@@ -15,18 +16,22 @@ export class LoginRequest extends Component {
     editInputingPassword(input: string, event: EditBox, custom: string){
         this._password = input;
     }
-    // request login 
-    async LoginReq()
+    editInputingPhone(input:String , event: EditBox, custom: string){
+        this._phone = input;
+    }
+    public async btnRegister()
     {
-        
-       await fetch("http://localhost:8487/api/login", {
+
+        await fetch("http://localhost:8487/api/register", {
             method: "POST",
             headers: {
                 "Content-Type": "application/json"
               },
               body: JSON.stringify({
-                login: this._login,
-                password: this._password
+                username: this._login,
+                password: this._password,
+                phone: this._phone,
+                account_type: 0
             })
         })
         .then(response => {
@@ -37,23 +42,20 @@ export class LoginRequest extends Component {
         
         })
         .then(data => {
-            const expiryTime = new Date().getTime() + (24 * 60 * 60 * 1000);
-            Cokkies.setCookie("token", data.access_token, 1);
-            Cokkies.setCookie("tokenExpiry", expiryTime.toString(), 1);
+            console.log(data);
         })
         .catch(error => {
             console.log('Request failed', error);
         });
     }
-    public btnRegister()
+    public nextSceneLogin()
     {
-        director.loadScene("Register");
+        director.loadScene("Login");
     }
-    public btnLoadSceneHome()
+    public nextSceneHome()
     {
         director.loadScene("scene");
     }
-   
 }
 
 
