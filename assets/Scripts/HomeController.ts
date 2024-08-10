@@ -34,7 +34,7 @@ export class HomeController extends Component {
             this.CashIn.active = true;
             if(UserDataStore.instance.data == null)
             {
-                fetch("http://localhost:8487/api/showInfo", {
+                fetch(`${UserDataStore.instance.URL_API}/api/showInfo`, {
                     method: "GET",
                     headers: {
                         "Content-Type": "application/json",
@@ -101,6 +101,22 @@ export class HomeController extends Component {
     btnShowSidePopup()
     {
         this.sidePopup.active = true;
+    }
+    btnNapRut()
+    {
+        director.loadScene("NapRut");
+
+    }
+    btnHistory()
+    {
+        director.loadScene("LichSuGD");
+    }
+    btnLogOut()
+    {
+        Cokkies.eraseCookie("token");
+        Cokkies.eraseCookie("tokenExpiry");
+        director.loadScene("scene");
+
     }
    
 }

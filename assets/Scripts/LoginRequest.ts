@@ -1,5 +1,6 @@
-import { _decorator, Component, director, EditBox, Node } from 'cc';
+import { _decorator, Component, director, EditBox, instantiate, Node, Prefab } from 'cc';
 import { Cokkies } from './Cokkies';
+import { UserDataStore } from './UserDataStore';
 const { ccclass, property } = _decorator;
 
 @ccclass('LoginRequest')
@@ -8,6 +9,11 @@ export class LoginRequest extends Component {
     public _password: String = '';
     @property({type: EditBox})
     password: EditBox;
+    @property({type: Prefab})
+    loading: Prefab;
+    @property({type: Node})
+    canvas: Node;
+
 
     editInputingUsername(input: string, event: EditBox, custom: string){
         this._login = input;
@@ -18,8 +24,10 @@ export class LoginRequest extends Component {
     // request login 
     async LoginReq()
     {
-        
-       await fetch("http://localhost:8487/api/login", {
+        const loading = instantiate(this.loading);
+        loading.setParent(this.canvas);
+
+       await fetch(`${UserDataStore.instance.URL_API}/api/login`, {
             method: "POST",
             headers: {
                 "Content-Type": "application/json"
@@ -40,6 +48,7 @@ export class LoginRequest extends Component {
             const expiryTime = new Date().getTime() + (24 * 60 * 60 * 1000);
             Cokkies.setCookie("token", data.access_token, 1);
             Cokkies.setCookie("tokenExpiry", expiryTime.toString(), 1);
+            loading.destroy();
             director.loadScene("scene");
         })
         .catch(error => {

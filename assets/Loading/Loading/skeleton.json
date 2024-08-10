@@ -1,0 +1,44 @@
+{
+"skeleton": {
+	"hash": "2JN6PKxG7YI",
+	"spine": "3.8-from-4.0-from-4.2.09-beta",
+	"x": -70.5,
+	"y": -74,
+	"width": 141,
+	"height": 148,
+	"images": "",
+	"audio": ""
+},
+"bones": [
+	{ "name": "root" },
+	{ "name": "Vector Smart Object", "parent": "root" }
+],
+"slots": [
+	{ "name": "Vector Smart Object", "bone": "Vector Smart Object", "attachment": "Vector Smart Object" }
+],
+"skins": [
+	{
+		"name": "default",
+		"attachments": {
+			"Vector Smart Object": {
+				"Vector Smart Object": { "width": 141, "height": 148 }
+			}
+		}
+	}
+],
+"animations": {
+	"animation": {
+		"bones": {
+			"Vector Smart Object": {
+				"rotate": [
+					{},
+					{ "time": 0.2, "angle": 90 },
+					{ "time": 0.4, "angle": 180 },
+					{ "time": 0.6, "angle": 270 },
+					{ "time": 0.8, "angle": 360 }
+				]
+			}
+		}
+	}
+}
+}

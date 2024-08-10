@@ -36,24 +36,6 @@ export class HttpRequest extends Component {
     editInputing(input: string, event: EditBox, custom: string){
         this._login = input;
     }
-    editBegan(event: EditBox, custom: string){
-       console.log("bắt đầu chỉnh sửa");
-    }
-
-    editEnd(event: EditBox, custom: string) {
-        // if(this._isReturn){
-        //     return;
-        // }
-        console.log("_login: " + this._login);
-        console.log("kết thúc chỉnh sửa");
-    }
-
-    editReturn(event: EditBox, custom: string){
-        this._isReturn = true;
-        console.log("_login: " + this._login);
-        console.log("xác nhận enter");
-    }
-
     update(deltaTime: number) {
         
     }

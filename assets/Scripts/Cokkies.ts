@@ -3,9 +3,11 @@ const { ccclass, property } = _decorator;
 
 @ccclass('Cokkies')
 export class Cokkies extends Component {
+   
     protected onLoad(): void {
         director.addPersistRootNode(this.node);
     }
+   
     static setCookie(name: string, value: string, days: number) {
         console.log("vào đây không");
         let expires = "";
@@ -31,6 +33,7 @@ export class Cokkies extends Component {
     static eraseCookie(name: string) {
         document.cookie = name + '=; Max-Age=-99999999;';
     }
+
 }
 
 

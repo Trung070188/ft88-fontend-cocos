@@ -1,4 +1,6 @@
-import { _decorator, Component, instantiate, Label, Node, Prefab } from 'cc';
+import { _decorator, Component, director, instantiate, Label, Node, Prefab } from 'cc';
+import { Cokkies } from './Cokkies';
+import { UserDataStore } from './UserDataStore';
 const { ccclass, property } = _decorator;
 
 @ccclass('TableManager')
@@ -10,23 +12,47 @@ export class TableManager extends Component {
     tableContainer: Node = null!;
 
     start() {
-        const data = [
-            { code: 'John', status: "Done", date:"17/09/2024", bank: "Agribank", amount: "1.000.000", des:"Abc" },
-            { code: 'John', status: "Done", date:"17/09/2024", bank: "Agribank", amount: "1.000.000", des:"Abc" },
-            { code: 'John', status: "Done", date:"17/09/2024", bank: "Agribank", amount: "1.000.000", des:"Abc" },
-            { code: 'John', status: "Done", date:"17/09/2024", bank: "Agribank", amount: "1.000.000", des:"Abc" },
-            { code: 'John', status: "Done", date:"17/09/2024", bank: "Agribank", amount: "1.000.000", des:"Abc" },
-            { code: 'John', status: "Done", date:"17/09/2024", bank: "Agribank", amount: "1.000.000", des:"Abc" },
-            { code: 'John', status: "Done", date:"17/09/2024", bank: "Agribank", amount: "1.000.000", des:"Abc" },
-            { code: 'John', status: "Done", date:"17/09/2024", bank: "Agribank", amount: "1.000.000", des:"Abc" },
-            { code: 'John', status: "Done", date:"17/09/2024", bank: "Agribank", amount: "1.000.000", des:"Abc" },
-            { code: 'John', status: "Done", date:"17/09/2024", bank: "Agribank", amount: "1.000.000", des:"Abc" },
-        ];
+        // const data = [
+        //     { code: 'John', status: "Done", date:"17/09/2024", bank: "Agribank", amount: "1.000.000", des:"Abc" },
+        //     { code: 'John', status: "Done", date:"17/09/2024", bank: "Agribank", amount: "1.000.000", des:"Abc" },
+        //     { code: 'John', status: "Done", date:"17/09/2024", bank: "Agribank", amount: "1.000.000", des:"Abc" },
+        //     { code: 'John', status: "Done", date:"17/09/2024", bank: "Agribank", amount: "1.000.000", des:"Abc" },
+        //     { code: 'John', status: "Done", date:"17/09/2024", bank: "Agribank", amount: "1.000.000", des:"Abc" },
+        //     { code: 'John', status: "Done", date:"17/09/2024", bank: "Agribank", amount: "1.000.000", des:"Abc" },
+        //     { code: 'John', status: "Done", date:"17/09/2024", bank: "Agribank", amount: "1.000.000", des:"Abc" },
+        //     { code: 'John', status: "Done", date:"17/09/2024", bank: "Agribank", amount: "1.000.000", des:"Abc" },
+        //     { code: 'John', status: "Done", date:"17/09/2024", bank: "Agribank", amount: "1.000.000", des:"Abc" },
+        //     { code: 'John', status: "Done", date:"17/09/2024", bank: "Agribank", amount: "1.000.000", des:"Abc" },
+        // ];
 
-        this.renderTable(data);
+        // this.renderTable(data);
+        this.callApiHistory()
+    }
+    callApiHistory()
+    {
+        fetch(`${UserDataStore.instance.URL_API}/api/show-transaction`, {
+            method: "GET",
+            headers: {
+                "Content-Type": "application/json",
+                "Authorization": `Bearer ${Cokkies.getCookie("token")}`
+            }
+        })
+        .then(response => {
+            if (!response.ok) {
+                throw new Error('Network response was not ok');
+            }
+            return response.json();
+        })
+        .then(data => {
+            UserDataStore.instance.setDataHistory(data.data);
+            this.renderTable(data.data);
+        })
+        .catch(error => {
+            console.log('Request failed', error);
+        });
     }
 
-    renderTable(data: Array<{ code: string, status: string, date: string, bank: string, amount: string, des: string }>) {
+    renderTable(data: Array<{ code: string, status: string, created_at: string, bank_name: string, amount: string, note: string }>) {
         this.tableContainer.removeAllChildren();
 
         for (let i = 0; i < data.length; i++) {
@@ -42,17 +68,17 @@ export class TableManager extends Component {
             const desLabel = newRow.getChildByName('DesLabel')!.getComponent(Label)!;
             codeLabel.string = rowData.code;
             statusLabel.string = rowData.status;
-            dateLabel.string = rowData.date;
-            bankLabel.string = rowData.bank;
+            dateLabel.string = rowData.created_at;
+            bankLabel.string = rowData.bank_name;
             amountLabel.string = rowData.amount;
-            desLabel.string = rowData.des;
-
-
-
-
+            desLabel.string = rowData.note;
             // Thêm row vào container
             this.tableContainer.addChild(newRow);
         }
+    }
+    btnClose()
+    {
+        director.loadScene("scene");
     }
 }
 

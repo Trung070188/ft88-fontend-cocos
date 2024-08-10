@@ -1,4 +1,6 @@
-import { _decorator, Component, EditBox, Node, AsyncDelegate, director } from 'cc';
+import { _decorator, Component, EditBox, Node, AsyncDelegate, director, Prefab, instantiate, Label } from 'cc';
+import { Cokkies } from './Cokkies';
+import { UserDataStore } from './UserDataStore';
 const { ccclass, property } = _decorator;
 
 @ccclass('Resgister')
@@ -9,6 +11,12 @@ export class Resgister extends Component {
     public _accountType = 0;
     @property({type: EditBox})
     password: EditBox;
+    @property({type:Prefab})
+    message:Prefab;
+    @property({type: Node})
+    canvas: Node;
+    @property({type: Prefab})
+    loading: Prefab
 
     editInputingUsername(input: string, event: EditBox, custom: string){
         this._login = input;
@@ -21,8 +29,10 @@ export class Resgister extends Component {
     }
     public async btnRegister()
     {
+        const loading = instantiate(this.loading);
+        loading.setParent(this.canvas);
 
-        await fetch("http://localhost:8487/api/register", {
+        await fetch(`${UserDataStore.instance.URL_API}/api/register`, {
             method: "POST",
             headers: {
                 "Content-Type": "application/json"
@@ -42,7 +52,17 @@ export class Resgister extends Component {
         
         })
         .then(data => {
-            console.log(data);
+            const notiMessage = instantiate(this.message);
+            notiMessage.getChildByName("Label").getComponent(Label).string = "Đăng ký thành công!"
+            notiMessage.setParent(this.canvas);
+            this.scheduleOnce(() => {
+                notiMessage.destroy();
+            },1)
+            this.scheduleOnce(() => {
+                loading.destroy();
+                director.loadScene("scene");
+            },1)
+
         })
         .catch(error => {
             console.log('Request failed', error);
