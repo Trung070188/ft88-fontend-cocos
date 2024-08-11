@@ -42,7 +42,7 @@ export class UserDataStore extends Component {
     public dataHistory: Array<BankHistory> = [];
 
     @property({type: String})
-    public URL_API:String = 'http://localhost:8487';
+    public URL_API:String = 'https://ft88.net';
     protected onLoad(): void {
         
     }
