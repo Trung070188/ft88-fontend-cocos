@@ -13,8 +13,8 @@ export class TableManager extends Component {
 
     start() {
         // const data = [
-        //     { code: 'John', status: "Done", date:"17/09/2024", bank: "Agribank", amount: "1.000.000", des:"Abc" },
-        //     { code: 'John', status: "Done", date:"17/09/2024", bank: "Agribank", amount: "1.000.000", des:"Abc" },
+        //     { code: '4hena9', status: "Rút tiền", date:"2024-08-10", bank: "Vietcombank", amount: "1.000.000", des:"Abc" },
+        //     { code: '4hena9', status: "Done", date:"17/09/2024", bank: "Agribank", amount: "1.000.000", des:"Abc" },
         //     { code: 'John', status: "Done", date:"17/09/2024", bank: "Agribank", amount: "1.000.000", des:"Abc" },
         //     { code: 'John', status: "Done", date:"17/09/2024", bank: "Agribank", amount: "1.000.000", des:"Abc" },
         //     { code: 'John', status: "Done", date:"17/09/2024", bank: "Agribank", amount: "1.000.000", des:"Abc" },
@@ -50,6 +50,42 @@ export class TableManager extends Component {
         .catch(error => {
             console.log('Request failed', error);
         });
+        // const data = [
+        //     { code: 'John', status: "Nạp tiền", created_at:"2024-08-10", bank_name: "Vietcombank", amount: "1.000.000", note:"Ghí chú acv" },
+        //     { code: 'John', status: "Rút tiền", created_at:"2024-08-10", bank_name: "OCB", amount: "1.000.000", note:"Abc" },
+        //     { code: 'John', status: "Rút tiền", created_at:"17/09/2024", bank_name: "TechComBank", amount: "1.000.000", note:"Ghí chú acv" },
+        //     { code: 'John', status: "Nạp tiền", created_at:"17/09/2024", bank_name: "Agribank", amount: "1.000.000", note:"Abc" },
+        //     { code: 'John', status: "Rút tiền", created_at:"17/09/2024", bank_name: "Agribank", amount: "1.000.000", note:"Ghí chú acv" },
+        //     { code: 'John', status: "Nạp tiền", created_at:"17/09/2024", bank_name: "Agribank", amount: "1.000.000", note:"Abc" },
+        //     { code: 'John', status: "Nạp tiền", created_at:"17/09/2024", bank_name: "Agribank", amount: "1.000.000", note:"Abc" },
+        //     { code: 'John', status: "Rút tiền", created_at:"17/09/2024", bank_name: "Agribank", amount: "1.000.000", note:"Abc" },
+        //     { code: 'John', status: "Nạp tiền", created_at:"17/09/2024", bank_name: "Agribank", amount: "1.000.000", note:"Abc" },
+        //     { code: 'John', status: "Rút tiền", created_at:"17/09/2024", bank_name: "Agribank", amount: "1.000.000", note:"Ghí chú acv" },
+        //     { code: 'John', status: "Rút tiền", created_at:"17/09/2024", bank_name: "Agribank", amount: "1.000.000", note:"Ghí chú acv" },
+        //     { code: 'John', status: "Rút tiền", created_at:"17/09/2024", bank_name: "Agribank", amount: "1.000.000", note:"Ghí chú acv" },
+        //     { code: 'John', status: "Rút tiền", created_at:"17/09/2024", bank_name: "Agribank", amount: "1.000.000", note:"Ghí chú acv" },
+        //     { code: 'John', status: "Rút tiền", created_at:"17/09/2024", bank_name: "Agribank", amount: "1.000.000", note:"Ghí chú acv" },
+        //     { code: 'John', status: "Rút tiền", created_at:"17/09/2024", bank_name: "Agribank", amount: "1.000.000", note:"Ghí chú acv" },
+        //     { code: 'John', status: "Rút tiền", created_at:"17/09/2024", bank_name: "Agribank", amount: "1.000.000", note:"Ghí chú acv" },
+        //     { code: 'John', status: "Rút tiền", created_at:"17/09/2024", bank_name: "Agribank", amount: "1.000.000", note:"Ghí chú acv" },
+        //     { code: 'John', status: "Rút tiền", created_at:"17/09/2024", bank_name: "Agribank", amount: "1.000.000", note:"Ghí chú acv" },
+        //     { code: 'John', status: "Rút tiền", created_at:"17/09/2024", bank_name: "Agribank", amount: "1.000.000", note:"Ghí chú acv" },
+        //     { code: 'John', status: "Rút tiền", created_at:"17/09/2024", bank_name: "Agribank", amount: "1.000.000", note:"Ghí chú acv" },
+        //     { code: 'John', status: "Rút tiền", created_at:"17/09/2024", bank_name: "Agribank", amount: "1.000.000", note:"Ghí chú acv" },
+        //     { code: 'John', status: "Rút tiền", created_at:"17/09/2024", bank_name: "Agribank", amount: "1.000.000", note:"Ghí chú acv" },
+        //     { code: 'John', status: "Rút tiền", created_at:"17/09/2024", bank_name: "Agribank", amount: "1.000.000", note:"Ghí chú acv" },
+        //     { code: 'John', status: "Rút tiền", created_at:"17/09/2024", bank_name: "Agribank", amount: "1.000.000", note:"Ghí chú acv" },
+        //     { code: 'John', status: "Rút tiền", created_at:"17/09/2024", bank_name: "Agribank", amount: "1.000.000", note:"Ghí chú acv" },
+        //     { code: 'John', status: "Rút tiền", created_at:"17/09/2024", bank_name: "Agribank", amount: "1.000.000", note:"Ghí chú acv" },
+        //     { code: 'John', status: "Rút tiền", created_at:"17/09/2024", bank_name: "Agribank", amount: "1.000.000", note:"Ghí chú acv" },
+        //     { code: 'John', status: "Rút tiền", created_at:"17/09/2024", bank_name: "Agribank", amount: "1.000.000", note:"Ghí chú acv" },
+        //     { code: 'John', status: "Rút tiền", created_at:"17/09/2024", bank_name: "Agribank", amount: "1.000.000", note:"Ghí chú acv" },
+        //     { code: 'John', status: "Rút tiền", created_at:"17/09/2024", bank_name: "Agribank", amount: "1.000.000", note:"Ghí chú acv" },
+        //     { code: 'John', status: "Rút tiền", created_at:"17/09/2024", bank_name: "Agribank", amount: "1.000.000", note:"Ghí chú acv" },
+        //     { code: 'John', status: "Rút tiền", created_at:"17/09/2024", bank_name: "Agribank", amount: "1.000.000", note:"Ghí chú acv" },
+        //     { code: 'John', status: "Rút tiền", created_at:"17/09/2024", bank_name: "Agribank", amount: "1.000.000", note:"Ghí chú acv" },
+        // ];
+        // this.renderTable(data);
     }
 
     renderTable(data: Array<{ code: string, status: string, created_at: string, bank_name: string, amount: string, note: string }>) {
@@ -60,12 +96,12 @@ export class TableManager extends Component {
 
             const newRow = instantiate(this.tableRowPrefab);
 
-            const codeLabel = newRow.getChildByName('CodeLabel')!.getComponent(Label)!;
-            const statusLabel = newRow.getChildByName('StatusLabel')!.getComponent(Label)!;
-            const dateLabel = newRow.getChildByName('DateLabel')!.getComponent(Label)!;
-            const bankLabel = newRow.getChildByName('BankLabel')!.getComponent(Label)!;
-            const amountLabel = newRow.getChildByName('AmountLabel')!.getComponent(Label)!;
-            const desLabel = newRow.getChildByName('DesLabel')!.getComponent(Label)!;
+            const codeLabel = newRow.getChildByName('Code')!.getChildByName("CodeLabel")!.getComponent(Label)!;
+            const statusLabel = newRow.getChildByName('Status')!.getChildByName("StatusLabel")!.getComponent(Label)!;
+            const dateLabel = newRow.getChildByName('Date')!.getChildByName("DateLabel").getComponent(Label)!;
+            const bankLabel = newRow.getChildByName("Bank").getChildByName('BankLabel')!.getComponent(Label)!;
+            const amountLabel = newRow.getChildByName("Amount").getChildByName('AmountLabel')!.getComponent(Label)!;
+            const desLabel = newRow.getChildByName("Des").getChildByName('DesLabel')!.getComponent(Label)!;
             codeLabel.string = rowData.code;
             statusLabel.string = rowData.status;
             dateLabel.string = rowData.created_at;

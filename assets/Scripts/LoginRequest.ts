@@ -22,38 +22,44 @@ export class LoginRequest extends Component {
         this._password = input;
     }
     // request login 
-    async LoginReq()
-    {
+    async LoginReq() {
         const loading = instantiate(this.loading);
         loading.setParent(this.canvas);
-
-       await fetch(`${UserDataStore.instance.URL_API}/api/login`, {
-            method: "POST",
-            headers: {
-                "Content-Type": "application/json"
-              },
-              body: JSON.stringify({
-                login: this._login,
-                password: this._password
-            })
-        })
-        .then(response => {
+    
+        try {
+            const response = await fetch(`${UserDataStore.instance.URL_API}/api/login`, {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json"
+                },
+                body: JSON.stringify({
+                    login: this._login,
+                    password: this._password
+                })
+            });
+    
             if (!response.ok) {
-                throw new Error('Network response was not ok');
+                const errorText = await response.text();
+                throw new Error(`HTTP error! status: ${response.status}, message: ${errorText}`);
             }
-            return response.json(); 
-        
-        })
-        .then(data => {
+    
+            const data = await response.json();
+            console.log('Login successful:', data);
+    
             const expiryTime = new Date().getTime() + (24 * 60 * 60 * 1000);
             Cokkies.setCookie("token", data.access_token, 1);
             Cokkies.setCookie("tokenExpiry", expiryTime.toString(), 1);
+            
             loading.destroy();
             director.loadScene("scene");
-        })
-        .catch(error => {
-            console.log('Request failed', error);
-        });
+        } catch (error) {
+            console.error('Login failed:', error);
+            // Hiển thị lỗi cho người dùng
+            // this.showErrorMessage(error.message);
+        } finally {
+            // Đảm bảo loading luôn bị hủy, ngay cả khi có lỗi
+            loading.destroy();
+        }
     }
     public btnRegister()
     {
