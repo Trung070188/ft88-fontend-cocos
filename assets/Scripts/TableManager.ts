@@ -88,7 +88,7 @@ export class TableManager extends Component {
         // this.renderTable(data);
     }
 
-    renderTable(data: Array<{ code: string, status: string, created_at: string, bank_name: string, amount: string, note: string }>) {
+    renderTable(data: Array<{ code: string, status: string, created_at: string, bank_name: string, amount: string, note: string, confirm}>) {
         this.tableContainer.removeAllChildren();
 
         for (let i = 0; i < data.length; i++) {
@@ -97,13 +97,17 @@ export class TableManager extends Component {
             const newRow = instantiate(this.tableRowPrefab);
 
             const codeLabel = newRow.getChildByName('Code')!.getChildByName("CodeLabel")!.getComponent(Label)!;
+
+            const typeLabel = newRow.getChildByName('Type')!.getChildByName("TypeLabel")!.getComponent(Label)!;
+
             const statusLabel = newRow.getChildByName('Status')!.getChildByName("StatusLabel")!.getComponent(Label)!;
             const dateLabel = newRow.getChildByName('Date')!.getChildByName("DateLabel").getComponent(Label)!;
             const bankLabel = newRow.getChildByName("Bank").getChildByName('BankLabel')!.getComponent(Label)!;
             const amountLabel = newRow.getChildByName("Amount").getChildByName('AmountLabel')!.getComponent(Label)!;
             const desLabel = newRow.getChildByName("Des").getChildByName('DesLabel')!.getComponent(Label)!;
             codeLabel.string = rowData.code;
-            statusLabel.string = rowData.status;
+            typeLabel.string = rowData.status;
+            statusLabel.string = rowData.confirm;
             dateLabel.string = rowData.created_at;
             bankLabel.string = rowData.bank_name;
             amountLabel.string = rowData.amount;

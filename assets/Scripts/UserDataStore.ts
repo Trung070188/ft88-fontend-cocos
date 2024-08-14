@@ -28,6 +28,7 @@ interface BankHistory {
     id: string;
     code: string; 
     status: string,
+    confirm: string;
     created_at: string;
     bank_name: string;
     amount: string;

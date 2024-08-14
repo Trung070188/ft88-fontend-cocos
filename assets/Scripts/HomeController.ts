@@ -118,6 +118,38 @@ export class HomeController extends Component {
         director.loadScene("scene");
 
     }
+    btnClickLink()
+    {
+        this.NodeInfo.active = false;
+        this.sidePopup.active = false;
+
+        fetch(`${UserDataStore.instance.URL_API}/api/link-urls`, {
+            method: "GET",
+            headers: {
+                "Content-Type": "application/json",
+                "Authorization": `Bearer ${Cokkies.getCookie("token")}`
+            }
+        })
+        .then(response => {
+            if (!response.ok) {
+                throw new Error('Network response was not ok');
+            }
+            return response.json();
+        })
+        .then(data => {
+           let link_url = data.data[0].link_url;
+           if(link_url)
+           {
+                window.open(link_url, '_blank');
+           }
+           else{
+                console.log("error");
+           }
+        })
+        .catch(error => {
+            console.log('Request failed', error);
+        });
+    }
    
 }
 
