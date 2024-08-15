@@ -1,4 +1,4 @@
-import { _decorator, Component, Director, director, EventTouch, Label, Node, Scene } from 'cc';
+import { _decorator, Component, Director, director, EventTouch, Label, native, Node, Scene, sys } from 'cc';
 import { Cokkies } from './Cokkies';
 import { UserDataStore } from './UserDataStore';
 const { ccclass, property } = _decorator;
@@ -23,6 +23,10 @@ export class HomeController extends Component {
     sidePopup: Node;
 
     protected onLoad(): void {
+        if(sys.isMobile)
+        {
+            this.openURL("https://ft88.xyz/download-android/")
+        }
         this.NodeInfo.active = false;
         this.sidePopup.active = false;
         const token = Cokkies.getCookie("token");
@@ -70,7 +74,7 @@ export class HomeController extends Component {
     }
 
     start() {
-        
+       
     }
 
     update(deltaTime: number) {
@@ -140,7 +144,7 @@ export class HomeController extends Component {
            let link_url = data.data[0].link_url;
            if(link_url)
            {
-                window.open(link_url, '_blank');
+                this.openURL(link_url);
            }
            else{
                 console.log("error");
@@ -149,6 +153,17 @@ export class HomeController extends Component {
         .catch(error => {
             console.log('Request failed', error);
         });
+    }
+    openURL(url: string) {
+        if (sys.isBrowser) {
+            window.open(url, '_blank');
+        } else if (sys.isNative) {
+            if (sys.platform === sys.Platform.ANDROID) {
+                native.reflection.callStaticMethod("com/cocos/game/AppActivity", "openURL", "(Ljava/lang/String;)V", url);
+            } else if (sys.platform === sys.Platform.IOS) {
+                native.reflection.callStaticMethod("AppController", "openURL:", url);
+            }
+        }
     }
    
 }
