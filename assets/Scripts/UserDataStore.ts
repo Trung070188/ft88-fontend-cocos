@@ -16,6 +16,7 @@ interface BankDataFt88 {
     label: string;
     value: string;
     stk: string;
+    name_ctk: string;
     
 }
 

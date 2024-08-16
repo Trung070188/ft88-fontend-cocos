@@ -150,6 +150,10 @@
       "__uuid__": "d521f6a7-6fa8-436e-bebc-9c1d5f083f09",
       "__expectedType__": "cc.Prefab"
     },
+    "messageWarning": {
+      "__uuid__": "43ed3a18-24b1-4da4-846a-4fa5c79766f8",
+      "__expectedType__": "cc.Prefab"
+    },
     "_id": "acedTf5+BJBJ0CYGKveVlv"
   },
   {

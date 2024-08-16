@@ -24,6 +24,8 @@ export class CashOutInCtr extends Component {
     bankLabelCashOut: Label;
     @property({type:Label})
     stkLabel: Label;
+    @property({type: Label})
+    name_ctk: Label;
     @property({type: Prefab})
     messageSend: Prefab;
     @property({type: Node})
@@ -51,6 +53,8 @@ export class CashOutInCtr extends Component {
     typeCash: number = 1;
     @property({type: Prefab})
     loading: Prefab;
+    @property({type: Prefab})
+    messageWarning: Prefab;
     
     start() {
 
@@ -208,8 +212,8 @@ export class CashOutInCtr extends Component {
                     this._stkAdmin = item.stk;
                     this.bankLabelCashIn.string = item.label;
                     this.stkLabel.string = item.stk;
-    
                     this._bank_id = item.value;
+                    this.name_ctk.string = item.name_ctk;
                 }
             })
     
@@ -244,13 +248,22 @@ export class CashOutInCtr extends Component {
                 "user_account" : this._account,
                 "bank_account_receiver": this._stkAdmin,
                 "amount": this._amount,
-                "name_user": this._userSend,
+                "name_user": this.name_ctk.string,
                 "transaction_note": this._note,
                 "bank_id" : this._bank_id
             })
         })
         .then(response => {
             if (!response.ok) {
+                const notiMessage1 = instantiate(this.messageWarning);
+                notiMessage1.setParent(this.canvas)
+    
+                setTimeout(() => {
+                    notiMessage1.destroy();
+                }, 2000)
+                this.scheduleOnce(() => {
+                    loading.destroy();
+                }, 0.5)
                 throw new Error('Network response was not ok');
             }
             return response.json();
@@ -293,6 +306,15 @@ export class CashOutInCtr extends Component {
         })
         .then(response => {
             if (!response.ok) {
+
+                const notiMessage1 = instantiate(this.messageWarning);
+                notiMessage1.setParent(this.canvas)
+                setTimeout(() => {
+                    notiMessage1.destroy();
+                }, 2000)
+                this.scheduleOnce(() => {
+                    loading.destroy();
+                }, 1)
                 throw new Error('Network response was not ok');
             }
             return response.json();

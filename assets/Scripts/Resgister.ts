@@ -16,7 +16,9 @@ export class Resgister extends Component {
     @property({type: Node})
     canvas: Node;
     @property({type: Prefab})
-    loading: Prefab
+    loading: Prefab;
+    @property({type: Prefab})
+    messageWarning: Prefab;
 
     editInputingUsername(input: string, event: EditBox, custom: string){
         this._login = input;
@@ -46,6 +48,17 @@ export class Resgister extends Component {
         })
         .then(response => {
             if (!response.ok) {
+
+
+                const notiMessage1 = instantiate(this.messageWarning);
+                notiMessage1.getChildByName("Label").getComponent(Label).string = "Đăng ký không thành công!"
+                notiMessage1.setParent(this.canvas);
+                this.scheduleOnce(() => {
+                    notiMessage1.destroy();
+                },1)
+                this.scheduleOnce(() => {
+                    loading.destroy();
+                },1)
                 throw new Error('Network response was not ok');
             }
             return response.json(); 
