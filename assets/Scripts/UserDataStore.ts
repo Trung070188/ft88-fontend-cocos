@@ -35,6 +35,11 @@ interface BankHistory {
     amount: string;
     note: string;   
 }
+
+interface ChangeRate {
+    id: string;
+    exchange_rate: string;
+}
 @ccclass('UserDataStore')
 export class UserDataStore extends Component {
     private static _instance: UserDataStore | null = null;
@@ -42,6 +47,8 @@ export class UserDataStore extends Component {
     public dataBankFt88: Array<BankDataFt88> = [];
     public dataBank: Array<BankData> = [];
     public dataHistory: Array<BankHistory> = [];
+
+    public dataRate: ChangeRate | null = null;
 
     @property({type: String})
     public URL_API:String = 'https://ft88.net';
@@ -88,6 +95,13 @@ export class UserDataStore extends Component {
 
     public getDataHistory(): Array<BankHistory> {
         return this.dataHistory;
+    }
+    public setDataRate(data: ChangeRate) {
+        this.dataRate = data;
+    }
+
+    public getDataRate(): ChangeRate | null {
+        return this.dataRate;
     }
     
 }

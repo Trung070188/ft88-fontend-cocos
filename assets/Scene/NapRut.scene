@@ -210,6 +210,12 @@
       "__uuid__": "43ed3a18-24b1-4da4-846a-4fa5c79766f8",
       "__expectedType__": "cc.Prefab"
     },
+    "amountCashIn": {
+      "__id__": 119
+    },
+    "amountCashOut": {
+      "__id__": 218
+    },
     "_id": "b8BHX2qOZKt48HrlQSJvSp"
   },
   {
@@ -2564,7 +2570,7 @@
     "_lpos": {
       "__type__": "cc.Vec3",
       "x": -73.21417187500003,
-      "y": 344.41,
+      "y": 314.4100000000001,
       "z": 0
     },
     "_lrot": {
@@ -2696,7 +2702,7 @@
     "_lpos": {
       "__type__": "cc.Vec3",
       "x": 48.914734374999966,
-      "y": 244.01000000000005,
+      "y": 184.01000000000005,
       "z": 0
     },
     "_lrot": {
@@ -2828,7 +2834,7 @@
     "_lpos": {
       "__type__": "cc.Vec3",
       "x": -27.813781250000034,
-      "y": 143.61,
+      "y": 53.610000000000014,
       "z": 0
     },
     "_lrot": {
@@ -2959,8 +2965,8 @@
     "_prefab": null,
     "_lpos": {
       "__type__": "cc.Vec3",
-      "x": -108.80987500000003,
-      "y": 43.210000000000036,
+      "x": -116.59307812500003,
+      "y": -76.79000000000002,
       "z": 0
     },
     "_lrot": {
@@ -2998,7 +3004,7 @@
     "__prefab": null,
     "_contentSize": {
       "__type__": "cc.Size",
-      "width": 124.53125,
+      "width": 108.96484375,
       "height": 50.4
     },
     "_anchorPoint": {
@@ -3028,7 +3034,7 @@
       "b": 5,
       "a": 255
     },
-    "_string": "Số tiền",
+    "_string": "Số Xu",
     "_horizontalAlign": 1,
     "_verticalAlign": 1,
     "_actualFontSize": 40,
@@ -3092,7 +3098,7 @@
     "_lpos": {
       "__type__": "cc.Vec3",
       "x": -16.534484375000034,
-      "y": -57.19,
+      "y": -207.19,
       "z": 0
     },
     "_lrot": {
@@ -3247,7 +3253,7 @@
     "_paddingTop": 0,
     "_paddingBottom": 0,
     "_spacingX": 0,
-    "_spacingY": 50,
+    "_spacingY": 80,
     "_verticalDirection": 1,
     "_horizontalDirection": 0,
     "_constraint": 2,
@@ -3355,7 +3361,7 @@
     "_lpos": {
       "__type__": "cc.Vec3",
       "x": 0.19264062499999568,
-      "y": 439.95349999999996,
+      "y": 426.8685,
       "z": 0
     },
     "_lrot": {
@@ -3403,7 +3409,7 @@
     "_lpos": {
       "__type__": "cc.Vec3",
       "x": -252.106,
-      "y": 30.0565,
+      "y": 43.14149999999999,
       "z": 0
     },
     "_lrot": {
@@ -3442,7 +3448,7 @@
     "_contentSize": {
       "__type__": "cc.Size",
       "width": 506.212,
-      "height": 60.113
+      "height": 86.28299999999999
     },
     "_anchorPoint": {
       "__type__": "cc.Vec2",
@@ -3535,7 +3541,7 @@
     "_lpos": {
       "__type__": "cc.Vec3",
       "x": -252.106,
-      "y": 30.0565,
+      "y": 43.14149999999999,
       "z": 0
     },
     "_lrot": {
@@ -3574,7 +3580,7 @@
     "_contentSize": {
       "__type__": "cc.Size",
       "width": 506.212,
-      "height": 60.113
+      "height": 86.28299999999999
     },
     "_anchorPoint": {
       "__type__": "cc.Vec2",
@@ -3603,11 +3609,11 @@
       "b": 187,
       "a": 255
     },
-    "_string": "username...",
+    "_string": "Username...",
     "_horizontalAlign": 0,
     "_verticalAlign": 1,
-    "_actualFontSize": 30,
-    "_fontSize": 30,
+    "_actualFontSize": 40,
+    "_fontSize": 40,
     "_fontFamily": "Arial",
     "_lineHeight": 40,
     "_overflow": 1,
@@ -3658,7 +3664,7 @@
     "_contentSize": {
       "__type__": "cc.Size",
       "width": 508.212,
-      "height": 60.113
+      "height": 86.28299999999999
     },
     "_anchorPoint": {
       "__type__": "cc.Vec2",
@@ -3784,7 +3790,7 @@
     "_lpos": {
       "__type__": "cc.Vec3",
       "x": 0.19264062499999568,
-      "y": 339.8405,
+      "y": 300.5855,
       "z": 0
     },
     "_lrot": {
@@ -4012,8 +4018,8 @@
     "_string": "",
     "_horizontalAlign": 1,
     "_verticalAlign": 1,
-    "_actualFontSize": 30,
-    "_fontSize": 30,
+    "_actualFontSize": 40,
+    "_fontSize": 40,
     "_fontFamily": "Arial",
     "_lineHeight": 40,
     "_overflow": 0,
@@ -4064,7 +4070,7 @@
     "_contentSize": {
       "__type__": "cc.Size",
       "width": 508.212,
-      "height": 60.113
+      "height": 86.283
     },
     "_anchorPoint": {
       "__type__": "cc.Vec2",
@@ -4163,7 +4169,9 @@
     "_disabledSprite": null,
     "_duration": 0.1,
     "_zoomScale": 1.2,
-    "_target": null,
+    "_target": {
+      "__id__": 90
+    },
     "_id": "76RY3kz0hFhrJtNsRcwmoA"
   },
   {
@@ -4202,7 +4210,7 @@
     "_lpos": {
       "__type__": "cc.Vec3",
       "x": 0.19264062499999568,
-      "y": 239.7275,
+      "y": 174.3025,
       "z": 0
     },
     "_lrot": {
@@ -4321,8 +4329,8 @@
     "_string": "",
     "_horizontalAlign": 1,
     "_verticalAlign": 1,
-    "_actualFontSize": 30,
-    "_fontSize": 30,
+    "_actualFontSize": 40,
+    "_fontSize": 40,
     "_fontFamily": "Arial",
     "_lineHeight": 40,
     "_overflow": 0,
@@ -4373,7 +4381,7 @@
     "_contentSize": {
       "__type__": "cc.Size",
       "width": 508.212,
-      "height": 60.113
+      "height": 86.283
     },
     "_anchorPoint": {
       "__type__": "cc.Vec2",
@@ -4447,7 +4455,7 @@
     "_lpos": {
       "__type__": "cc.Vec3",
       "x": 0.19264062499999568,
-      "y": 139.61450000000002,
+      "y": 48.019499999999994,
       "z": 0
     },
     "_lrot": {
@@ -4566,8 +4574,8 @@
     "_string": "",
     "_horizontalAlign": 1,
     "_verticalAlign": 1,
-    "_actualFontSize": 30,
-    "_fontSize": 30,
+    "_actualFontSize": 40,
+    "_fontSize": 40,
     "_fontFamily": "Arial",
     "_lineHeight": 40,
     "_overflow": 0,
@@ -4618,7 +4626,7 @@
     "_contentSize": {
       "__type__": "cc.Size",
       "width": 508.212,
-      "height": 60.113
+      "height": 86.283
     },
     "_anchorPoint": {
       "__type__": "cc.Vec2",
@@ -4698,7 +4706,7 @@
     "_lpos": {
       "__type__": "cc.Vec3",
       "x": 0.19264062499999568,
-      "y": 39.501499999999965,
+      "y": -78.26350000000002,
       "z": 0
     },
     "_lrot": {
@@ -4746,7 +4754,7 @@
     "_lpos": {
       "__type__": "cc.Vec3",
       "x": -252.106,
-      "y": 30.0565,
+      "y": 43.1415,
       "z": 0
     },
     "_lrot": {
@@ -4785,7 +4793,7 @@
     "_contentSize": {
       "__type__": "cc.Size",
       "width": 506.212,
-      "height": 60.113
+      "height": 86.283
     },
     "_anchorPoint": {
       "__type__": "cc.Vec2",
@@ -4878,7 +4886,7 @@
     "_lpos": {
       "__type__": "cc.Vec3",
       "x": -252.106,
-      "y": 30.0565,
+      "y": 43.1415,
       "z": 0
     },
     "_lrot": {
@@ -4917,7 +4925,7 @@
     "_contentSize": {
       "__type__": "cc.Size",
       "width": 506.212,
-      "height": 60.113
+      "height": 86.283
     },
     "_anchorPoint": {
       "__type__": "cc.Vec2",
@@ -4946,11 +4954,11 @@
       "b": 187,
       "a": 255
     },
-    "_string": "",
+    "_string": "1 xu  = 20.000 vnđ",
     "_horizontalAlign": 0,
     "_verticalAlign": 1,
-    "_actualFontSize": 30,
-    "_fontSize": 30,
+    "_actualFontSize": 40,
+    "_fontSize": 40,
     "_fontFamily": "Arial",
     "_lineHeight": 40,
     "_overflow": 1,
@@ -5001,7 +5009,7 @@
     "_contentSize": {
       "__type__": "cc.Size",
       "width": 508.212,
-      "height": 60.113
+      "height": 86.283
     },
     "_anchorPoint": {
       "__type__": "cc.Vec2",
@@ -5127,7 +5135,7 @@
     "_lpos": {
       "__type__": "cc.Vec3",
       "x": 0.19264062499999568,
-      "y": -60.61149999999998,
+      "y": -204.54649999999992,
       "z": 0
     },
     "_lrot": {
@@ -5175,7 +5183,7 @@
     "_lpos": {
       "__type__": "cc.Vec3",
       "x": -252.106,
-      "y": 30.0565,
+      "y": 43.1415,
       "z": 0
     },
     "_lrot": {
@@ -5214,7 +5222,7 @@
     "_contentSize": {
       "__type__": "cc.Size",
       "width": 506.212,
-      "height": 60.113
+      "height": 86.283
     },
     "_anchorPoint": {
       "__type__": "cc.Vec2",
@@ -5307,7 +5315,7 @@
     "_lpos": {
       "__type__": "cc.Vec3",
       "x": -252.106,
-      "y": 30.0565,
+      "y": 43.1415,
       "z": 0
     },
     "_lrot": {
@@ -5346,7 +5354,7 @@
     "_contentSize": {
       "__type__": "cc.Size",
       "width": 506.212,
-      "height": 60.113
+      "height": 86.283
     },
     "_anchorPoint": {
       "__type__": "cc.Vec2",
@@ -5378,8 +5386,8 @@
     "_string": "Nhập mã giao dịch",
     "_horizontalAlign": 0,
     "_verticalAlign": 1,
-    "_actualFontSize": 30,
-    "_fontSize": 30,
+    "_actualFontSize": 40,
+    "_fontSize": 40,
     "_fontFamily": "Arial",
     "_lineHeight": 40,
     "_overflow": 1,
@@ -5430,7 +5438,7 @@
     "_contentSize": {
       "__type__": "cc.Size",
       "width": 508.212,
-      "height": 60.113
+      "height": 86.283
     },
     "_anchorPoint": {
       "__type__": "cc.Vec2",
@@ -5554,7 +5562,7 @@
     "node": {
       "__id__": 78
     },
-    "_enabled": true,
+    "_enabled": false,
     "__prefab": null,
     "_resizeMode": 0,
     "_layoutType": 3,
@@ -5610,7 +5618,7 @@
     "_lpos": {
       "__type__": "cc.Vec3",
       "x": 0,
-      "y": -337.754,
+      "y": -488.506,
       "z": 0
     },
     "_lrot": {
@@ -5837,7 +5845,9 @@
     "_disabledSprite": null,
     "_duration": 0.1,
     "_zoomScale": 1.2,
-    "_target": null,
+    "_target": {
+      "__id__": 137
+    },
     "_id": "d2wafp6O1Kkriyj301CASZ"
   },
   {
@@ -5930,7 +5940,9 @@
     "_disabledSprite": null,
     "_duration": 0.1,
     "_zoomScale": 1.2,
-    "_target": null,
+    "_target": {
+      "__id__": 137
+    },
     "_id": "3bgYb8FE1JWbuVo8KXbs9W"
   },
   {
@@ -6164,7 +6176,7 @@
     "_lpos": {
       "__type__": "cc.Vec3",
       "x": -73.21417187500003,
-      "y": 344.41,
+      "y": 314.4100000000001,
       "z": 0
     },
     "_lrot": {
@@ -6296,7 +6308,7 @@
     "_lpos": {
       "__type__": "cc.Vec3",
       "x": 48.914734374999966,
-      "y": 244.01000000000005,
+      "y": 184.01000000000005,
       "z": 0
     },
     "_lrot": {
@@ -6428,7 +6440,7 @@
     "_lpos": {
       "__type__": "cc.Vec3",
       "x": -27.813781250000034,
-      "y": 143.61,
+      "y": 53.610000000000014,
       "z": 0
     },
     "_lrot": {
@@ -6559,8 +6571,8 @@
     "_prefab": null,
     "_lpos": {
       "__type__": "cc.Vec3",
-      "x": -108.80987500000003,
-      "y": 43.210000000000036,
+      "x": -116.59307812500003,
+      "y": -76.79000000000002,
       "z": 0
     },
     "_lrot": {
@@ -6598,7 +6610,7 @@
     "__prefab": null,
     "_contentSize": {
       "__type__": "cc.Size",
-      "width": 124.53125,
+      "width": 108.96484375,
       "height": 50.4
     },
     "_anchorPoint": {
@@ -6628,7 +6640,7 @@
       "b": 5,
       "a": 255
     },
-    "_string": "Số tiền",
+    "_string": "Số Xu",
     "_horizontalAlign": 1,
     "_verticalAlign": 1,
     "_actualFontSize": 40,
@@ -6847,7 +6859,7 @@
     "_paddingTop": 0,
     "_paddingBottom": 0,
     "_spacingX": 0,
-    "_spacingY": 50,
+    "_spacingY": 80,
     "_verticalDirection": 1,
     "_horizontalDirection": 0,
     "_constraint": 2,
@@ -6955,7 +6967,7 @@
     "_lpos": {
       "__type__": "cc.Vec3",
       "x": 0.19264062499999568,
-      "y": 439.95349999999996,
+      "y": 426.8685,
       "z": 0
     },
     "_lrot": {
@@ -7003,7 +7015,7 @@
     "_lpos": {
       "__type__": "cc.Vec3",
       "x": -252.106,
-      "y": 30.0565,
+      "y": 43.1415,
       "z": 0
     },
     "_lrot": {
@@ -7042,7 +7054,7 @@
     "_contentSize": {
       "__type__": "cc.Size",
       "width": 506.212,
-      "height": 60.113
+      "height": 86.283
     },
     "_anchorPoint": {
       "__type__": "cc.Vec2",
@@ -7135,7 +7147,7 @@
     "_lpos": {
       "__type__": "cc.Vec3",
       "x": -252.106,
-      "y": 30.0565,
+      "y": 43.1415,
       "z": 0
     },
     "_lrot": {
@@ -7174,7 +7186,7 @@
     "_contentSize": {
       "__type__": "cc.Size",
       "width": 506.212,
-      "height": 60.113
+      "height": 86.283
     },
     "_anchorPoint": {
       "__type__": "cc.Vec2",
@@ -7203,11 +7215,11 @@
       "b": 187,
       "a": 255
     },
-    "_string": "Enter text here...",
+    "_string": "Username",
     "_horizontalAlign": 0,
     "_verticalAlign": 1,
-    "_actualFontSize": 30,
-    "_fontSize": 30,
+    "_actualFontSize": 40,
+    "_fontSize": 40,
     "_fontFamily": "Arial",
     "_lineHeight": 40,
     "_overflow": 1,
@@ -7258,7 +7270,7 @@
     "_contentSize": {
       "__type__": "cc.Size",
       "width": 508.212,
-      "height": 60.113
+      "height": 86.283
     },
     "_anchorPoint": {
       "__type__": "cc.Vec2",
@@ -7384,7 +7396,7 @@
     "_lpos": {
       "__type__": "cc.Vec3",
       "x": 0.19264062499999568,
-      "y": 339.8405,
+      "y": 300.5855,
       "z": 0
     },
     "_lrot": {
@@ -7613,7 +7625,7 @@
     "_horizontalAlign": 1,
     "_verticalAlign": 1,
     "_actualFontSize": 30,
-    "_fontSize": 30,
+    "_fontSize": 40,
     "_fontFamily": "Arial",
     "_lineHeight": 40,
     "_overflow": 0,
@@ -7664,7 +7676,7 @@
     "_contentSize": {
       "__type__": "cc.Size",
       "width": 508.212,
-      "height": 60.113
+      "height": 86.283
     },
     "_anchorPoint": {
       "__type__": "cc.Vec2",
@@ -7808,7 +7820,7 @@
     "_lpos": {
       "__type__": "cc.Vec3",
       "x": 0.19264062499999568,
-      "y": 239.7275,
+      "y": 174.3025,
       "z": 0
     },
     "_lrot": {
@@ -7856,7 +7868,7 @@
     "_lpos": {
       "__type__": "cc.Vec3",
       "x": -252.106,
-      "y": 30.0565,
+      "y": 43.1415,
       "z": 0
     },
     "_lrot": {
@@ -7895,7 +7907,7 @@
     "_contentSize": {
       "__type__": "cc.Size",
       "width": 506.212,
-      "height": 60.113
+      "height": 86.283
     },
     "_anchorPoint": {
       "__type__": "cc.Vec2",
@@ -7988,7 +8000,7 @@
     "_lpos": {
       "__type__": "cc.Vec3",
       "x": -252.106,
-      "y": 30.0565,
+      "y": 43.1415,
       "z": 0
     },
     "_lrot": {
@@ -8027,7 +8039,7 @@
     "_contentSize": {
       "__type__": "cc.Size",
       "width": 506.212,
-      "height": 60.113
+      "height": 86.283
     },
     "_anchorPoint": {
       "__type__": "cc.Vec2",
@@ -8056,11 +8068,11 @@
       "b": 187,
       "a": 255
     },
-    "_string": "Enter text here...",
+    "_string": "Số tài khoản của bạn",
     "_horizontalAlign": 0,
     "_verticalAlign": 1,
-    "_actualFontSize": 30,
-    "_fontSize": 30,
+    "_actualFontSize": 40,
+    "_fontSize": 40,
     "_fontFamily": "Arial",
     "_lineHeight": 40,
     "_overflow": 1,
@@ -8111,7 +8123,7 @@
     "_contentSize": {
       "__type__": "cc.Size",
       "width": 508.212,
-      "height": 60.113
+      "height": 86.283
     },
     "_anchorPoint": {
       "__type__": "cc.Vec2",
@@ -8237,7 +8249,7 @@
     "_lpos": {
       "__type__": "cc.Vec3",
       "x": 0.19264062499999568,
-      "y": 139.61450000000002,
+      "y": 48.019499999999994,
       "z": 0
     },
     "_lrot": {
@@ -8285,7 +8297,7 @@
     "_lpos": {
       "__type__": "cc.Vec3",
       "x": -252.106,
-      "y": 30.0565,
+      "y": 43.1415,
       "z": 0
     },
     "_lrot": {
@@ -8324,7 +8336,7 @@
     "_contentSize": {
       "__type__": "cc.Size",
       "width": 506.212,
-      "height": 60.113
+      "height": 86.283
     },
     "_anchorPoint": {
       "__type__": "cc.Vec2",
@@ -8417,7 +8429,7 @@
     "_lpos": {
       "__type__": "cc.Vec3",
       "x": -252.106,
-      "y": 30.0565,
+      "y": 43.1415,
       "z": 0
     },
     "_lrot": {
@@ -8456,7 +8468,7 @@
     "_contentSize": {
       "__type__": "cc.Size",
       "width": 506.212,
-      "height": 60.113
+      "height": 86.283
     },
     "_anchorPoint": {
       "__type__": "cc.Vec2",
@@ -8485,11 +8497,11 @@
       "b": 187,
       "a": 255
     },
-    "_string": "Enter text here...",
+    "_string": "Tên người nhận",
     "_horizontalAlign": 0,
     "_verticalAlign": 1,
-    "_actualFontSize": 30,
-    "_fontSize": 30,
+    "_actualFontSize": 40,
+    "_fontSize": 40,
     "_fontFamily": "Arial",
     "_lineHeight": 40,
     "_overflow": 1,
@@ -8540,7 +8552,7 @@
     "_contentSize": {
       "__type__": "cc.Size",
       "width": 508.212,
-      "height": 60.113
+      "height": 86.283
     },
     "_anchorPoint": {
       "__type__": "cc.Vec2",
@@ -8666,7 +8678,7 @@
     "_lpos": {
       "__type__": "cc.Vec3",
       "x": 0.19264062499999568,
-      "y": 39.501499999999965,
+      "y": -78.26350000000002,
       "z": 0
     },
     "_lrot": {
@@ -8714,7 +8726,7 @@
     "_lpos": {
       "__type__": "cc.Vec3",
       "x": -252.106,
-      "y": 30.0565,
+      "y": 43.1415,
       "z": 0
     },
     "_lrot": {
@@ -8753,7 +8765,7 @@
     "_contentSize": {
       "__type__": "cc.Size",
       "width": 506.212,
-      "height": 60.113
+      "height": 86.283
     },
     "_anchorPoint": {
       "__type__": "cc.Vec2",
@@ -8846,7 +8858,7 @@
     "_lpos": {
       "__type__": "cc.Vec3",
       "x": -252.106,
-      "y": 30.0565,
+      "y": 43.1415,
       "z": 0
     },
     "_lrot": {
@@ -8885,7 +8897,7 @@
     "_contentSize": {
       "__type__": "cc.Size",
       "width": 506.212,
-      "height": 60.113
+      "height": 86.283
     },
     "_anchorPoint": {
       "__type__": "cc.Vec2",
@@ -8914,11 +8926,11 @@
       "b": 187,
       "a": 255
     },
-    "_string": "Enter text here...",
+    "_string": "1 xu = 20.000 VNĐ",
     "_horizontalAlign": 0,
     "_verticalAlign": 1,
-    "_actualFontSize": 30,
-    "_fontSize": 30,
+    "_actualFontSize": 40,
+    "_fontSize": 40,
     "_fontFamily": "Arial",
     "_lineHeight": 40,
     "_overflow": 1,
@@ -8969,7 +8981,7 @@
     "_contentSize": {
       "__type__": "cc.Size",
       "width": 508.212,
-      "height": 60.113
+      "height": 86.283
     },
     "_anchorPoint": {
       "__type__": "cc.Vec2",

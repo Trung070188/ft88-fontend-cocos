@@ -55,11 +55,18 @@ export class CashOutInCtr extends Component {
     loading: Prefab;
     @property({type: Prefab})
     messageWarning: Prefab;
+
+    @property({type: Label})
+    amountCashIn: Label;
+    @property({type: Label})
+    amountCashOut: Label;
     
     start() {
 
         this.OptionBanks.active = false;
         this.CheckCashCashOut();
+        this.CheckRate();
+        
       
     }
 
@@ -100,6 +107,35 @@ export class CashOutInCtr extends Component {
         
 
             
+    }
+    async CheckRate()
+    {
+        await fetch(`${UserDataStore.instance.URL_API}/api/change-rates/1`, {
+            method: "GET",
+            headers: {
+                "Content-Type": "application/json",
+                "Authorization": `Bearer ${Cokkies.getCookie("token")}`
+            }
+        })
+        .then(response => {
+            if (!response.ok) {
+                throw new Error('Network response was not ok');
+            }
+            return response.json();
+        })
+        .then(data => {
+             UserDataStore.instance.setDataRate(data.data);
+             let rate = UserDataStore.instance.dataRate;
+             const formattedRate = rate.exchange_rate.toLocaleString('vi-VN');
+
+             this.amountCashIn.string = `1 xu = ${formattedRate} VNĐ`;
+             this.amountCashOut.string = `1 xu = ${formattedRate} VNĐ`;
+        })
+        .catch(error => {
+            console.log('Request failed', error);
+        });
+         
+                 
     }
     async callApiBankQr()
     {
