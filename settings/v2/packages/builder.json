@@ -7,8 +7,8 @@
     },
     "logo": {
       "type": "custom",
-      "image": "project://settings/Logo.png"
+      "image": "project://settings/Icon.png"
     },
-    "displayRatio": 1
+    "displayRatio": 1.2
   }
 }

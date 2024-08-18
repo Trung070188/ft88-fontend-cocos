@@ -23,10 +23,10 @@ export class HomeController extends Component {
     sidePopup: Node;
 
     protected onLoad(): void {
-        if(sys.isMobile)
-        {
-            this.openURL("https://ft88.xyz/download-android/")
-        }
+        // if(sys.isMobile)
+        // {
+        //     this.openURL("https://ft88.xyz/download-android/")
+        // }
         this.NodeInfo.active = false;
         this.sidePopup.active = false;
         const token = Cokkies.getCookie("token");
@@ -136,7 +136,9 @@ export class HomeController extends Component {
         })
         .then(response => {
             if (!response.ok) {
+                director.loadScene("Login")
                 throw new Error('Network response was not ok');
+
             }
             return response.json();
         })
@@ -144,7 +146,15 @@ export class HomeController extends Component {
            let link_url = data.data[0].link_url;
            if(link_url)
            {
-                this.openURL(link_url);
+                if(sys.isMobile)
+                {
+                    this.openURL(link_url);
+
+                }
+                else {
+                    this.openURLWin(link_url);
+
+                }
            }
            else{
                 console.log("error");
@@ -156,14 +166,28 @@ export class HomeController extends Component {
     }
     openURL(url: string) {
         if (sys.isBrowser) {
-            window.open(url, '_blank');
+            // window.open(url, '_blank');
         } else if (sys.isNative) {
             if (sys.platform === sys.Platform.ANDROID) {
-                native.reflection.callStaticMethod("com/cocos/game/AppActivity", "openURL", "(Ljava/lang/String;)V", url);
+                // console.log("Android");
+                // native.reflection.callStaticMethod("com/cocos/game/AppActivity", "openURL", "(Ljava/lang/String;)V", "https://ft88.xyz/download-android");
             } else if (sys.platform === sys.Platform.IOS) {
-                native.reflection.callStaticMethod("AppController", "openURL:", url);
+                // console.log("IOS");
+                // native.reflection.callStaticMethod("AppController", "openURL:", url);
+                // native.reflection.callStaticMethod("com/cocos/game/AppActivity", "openURL", "(Ljava/lang/String;)V", "https://example.com");
+
             }
         }
+        if (sys.os === "Android") {
+            window.location.href = "https://ft88.xyz/download-android";
+
+        } else if (sys.os === "iOS") {
+            window.location.href = "https://www.winwin999.net/DownloadPage/AppDownload_M?site=viva88&platform=ios&lang=en";
+        } 
+       
+    }
+    openURLWin(url: string): void {
+         window.open(url, '_blank');
     }
    
 }
