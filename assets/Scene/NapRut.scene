@@ -380,7 +380,7 @@
         "__id__": 7
       }
     ],
-    "_active": true,
+    "_active": false,
     "_components": [
       {
         "__id__": 257
@@ -4946,7 +4946,7 @@
       "b": 187,
       "a": 255
     },
-    "_string": "Số tiền...",
+    "_string": "",
     "_horizontalAlign": 0,
     "_verticalAlign": 1,
     "_actualFontSize": 30,
