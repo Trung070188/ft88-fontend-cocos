@@ -12,6 +12,7 @@ export class CashOutInCtr extends Component {
     public _amount: String = '';
     public _note: String = '';
     public _bank_id: String= '';
+    public _amount_send: String = '';
     @property({type: Node})
     bankContainer: Node;
     @property({type: Prefab})
@@ -60,6 +61,10 @@ export class CashOutInCtr extends Component {
     amountCashIn: Label;
     @property({type: Label})
     amountCashOut: Label;
+    @property({type: Label})
+    rate: Label;
+    @property({type: Label})
+    rateCashOut: Label;
     
     start() {
 
@@ -128,8 +133,8 @@ export class CashOutInCtr extends Component {
              let rate = UserDataStore.instance.dataRate;
              const formattedRate = rate.exchange_rate.toLocaleString('vi-VN');
 
-             this.amountCashIn.string = `1 xu = ${formattedRate} VNĐ`;
-             this.amountCashOut.string = `1 xu = ${formattedRate} VNĐ`;
+             this.amountCashIn.string = `${formattedRate} VNĐ = 1 xu`;
+             this.amountCashOut.string = `${formattedRate} VNĐ = 1 xu`;
         })
         .catch(error => {
             console.log('Request failed', error);
@@ -172,11 +177,30 @@ export class CashOutInCtr extends Component {
     editInputingStkAdmin(input:String , event: EditBox, custom: string){
         this._stkAdmin = input;
     }
-    editInputingUserSend(input:String , event: EditBox, custom: string){
+    editInputingUserSend(input:string , event: EditBox, custom: string){
         this._userSend = input;
     }
-    editInputingAmount(input:String , event: EditBox, custom: string){
-        this._amount = input;
+    editInputingAmount(input:string , event: EditBox, custom: string){
+        this._amount_send = input;
+        let numericValue = input.replace(/\D/g, '');
+        let amount = parseInt(numericValue);
+    
+        if (!isNaN(amount)) {
+            this._amount = amount.toLocaleString('vi-VN');
+            event.string = `${this._amount} VNĐ`;
+            let xu = amount / parseInt(UserDataStore.instance.dataRate.exchange_rate);
+            if(this.typeCash  == 1)
+            {
+                this.rate.string = `Quy đổi ra : ${xu.toFixed(0)} xu`;
+            }
+            else {
+                this.rateCashOut.string = `Quy đổi ra : ${xu.toFixed(0)} xu`;
+            }
+        } else {
+            this._amount = '0';
+            event.string = '0 VNĐ';
+            this.rate.string = '0 xu';
+        }    
     }
     editInputingNote(input:String , event: EditBox, custom: string){
         this._note = input;
@@ -273,6 +297,7 @@ export class CashOutInCtr extends Component {
     {
         const loading = instantiate(this.loading);
         loading.setParent(this.canvas);
+       
 
         await fetch(`${UserDataStore.instance.URL_API}/api/transactions/deposit`, {
             method: "POST",
@@ -283,7 +308,7 @@ export class CashOutInCtr extends Component {
             body: JSON.stringify({
                 "user_account" : this._account,
                 "bank_account_receiver": this._stkAdmin,
-                "amount": this._amount,
+                "amount": this._amount_send,
                 "name_user": this.name_ctk.string,
                 "transaction_note": this._note,
                 "bank_id" : this._bank_id
@@ -335,7 +360,7 @@ export class CashOutInCtr extends Component {
             body: JSON.stringify({
                 "user_account" : this._account,
                 "bank_account_receiver": this._stkAdmin,
-                "amount": this._amount,
+                "amount": this._amount_send,
                 "name_user": this._userSend,
                 "bank_id" : this._bank_id
             })
