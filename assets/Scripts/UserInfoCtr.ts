@@ -32,6 +32,8 @@ export class UserInfoCtr extends Component {
     message:Prefab;
     @property({type: Node})
     canvas: Node;
+    @property({type: Prefab})
+    notiMessage: Prefab;
 
     
     start() {
@@ -67,11 +69,25 @@ export class UserInfoCtr extends Component {
     }
     onCopyAccount() {
         if (this.account) {
+            const notiMessage1 = instantiate(this.notiMessage);
+            notiMessage1.getChildByName("Label").getComponent(Label).string = "Sao chép account thành công !";
+            notiMessage1.setParent(this.canvas)
+
+            setTimeout(() => {
+                notiMessage1.destroy();
+            }, 2000)
             this.copyTextToClipboard(this.account.string);
         }
     }
     onCopyPassword() {
         if (this.password) {
+            const notiMessage1 = instantiate(this.notiMessage);
+            notiMessage1.getChildByName("Label").getComponent(Label).string = "Sao chép password thành công !";
+            notiMessage1.setParent(this.canvas)
+
+            setTimeout(() => {
+                notiMessage1.destroy();
+            }, 2000)
             this.copyTextToClipboard(this.password.string);
         }
     }
