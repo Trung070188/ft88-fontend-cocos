@@ -1365,8 +1365,8 @@
     "_string": "Username....",
     "_horizontalAlign": 0,
     "_verticalAlign": 1,
-    "_actualFontSize": 30,
-    "_fontSize": 30,
+    "_actualFontSize": 40,
+    "_fontSize": 40,
     "_fontFamily": "Arial",
     "_lineHeight": 40,
     "_overflow": 1,
@@ -1926,8 +1926,8 @@
     "_string": "Password...",
     "_horizontalAlign": 0,
     "_verticalAlign": 1,
-    "_actualFontSize": 30,
-    "_fontSize": 30,
+    "_actualFontSize": 40,
+    "_fontSize": 40,
     "_fontFamily": "Arial",
     "_lineHeight": 40,
     "_overflow": 1,
@@ -2487,8 +2487,8 @@
     "_string": "Số điện thoại...",
     "_horizontalAlign": 0,
     "_verticalAlign": 1,
-    "_actualFontSize": 30,
-    "_fontSize": 30,
+    "_actualFontSize": 40,
+    "_fontSize": 40,
     "_fontFamily": "Arial",
     "_lineHeight": 40,
     "_overflow": 1,
@@ -2619,7 +2619,7 @@
       "__expectedType__": "cc.SpriteFrame"
     },
     "_inputFlag": 5,
-    "_inputMode": 6,
+    "_inputMode": 2,
     "_maxLength": 191,
     "_id": "47THx9nxdBLo7MkTGArmSA"
   },
@@ -2924,7 +2924,7 @@
     "_prefab": null,
     "_lpos": {
       "__type__": "cc.Vec3",
-      "x": 111.881,
+      "x": 152.581,
       "y": 0,
       "z": 0
     },
@@ -2963,7 +2963,7 @@
     "__prefab": null,
     "_contentSize": {
       "__type__": "cc.Size",
-      "width": 161.93359375,
+      "width": 242.900390625,
       "height": 50.4
     },
     "_anchorPoint": {
@@ -2996,8 +2996,8 @@
     "_string": "Tài khoản Viva88",
     "_horizontalAlign": 1,
     "_verticalAlign": 1,
-    "_actualFontSize": 20,
-    "_fontSize": 20,
+    "_actualFontSize": 30,
+    "_fontSize": 30,
     "_fontFamily": "Arial",
     "_lineHeight": 40,
     "_overflow": 0,

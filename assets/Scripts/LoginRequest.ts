@@ -28,10 +28,10 @@ export class LoginRequest extends Component {
         const savedPassword = sys.localStorage.getItem('savedPassword');
         
         if (savedLogin) {
-            this.loginInput.string = savedLogin;
+           this.loginInput.string = savedLogin.toLowerCase();
         }
         if (savedPassword) {
-            this.password.string = savedPassword;
+            this.password.string = savedPassword.toLowerCase();
         }
     }
 
@@ -44,6 +44,8 @@ export class LoginRequest extends Component {
     async LoginReq() {
         const loading = instantiate(this.loading);
         loading.setParent(this.canvas);
+        const lowercaseLogin = this.loginInput.string.toLowerCase();
+        const lowercasePassword = this.password.string.toLowerCase();
     
         try {
             const response = await fetch(`${UserDataStore.instance.URL_API}/api/login`, {
@@ -52,8 +54,8 @@ export class LoginRequest extends Component {
                     "Content-Type": "application/json"
                 },
                 body: JSON.stringify({
-                    login: this.loginInput.string,
-                    password: this.password.string
+                    login: lowercaseLogin,
+                    password: lowercasePassword
                 })
             });
     

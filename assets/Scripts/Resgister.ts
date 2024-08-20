@@ -1,4 +1,4 @@
-import { _decorator, Component, EditBox, Node, AsyncDelegate, director, Prefab, instantiate, Label } from 'cc';
+import { _decorator, Component, EditBox, Node, AsyncDelegate, director, Prefab, instantiate, Label, sys } from 'cc';
 import { Cokkies } from './Cokkies';
 import { UserDataStore } from './UserDataStore';
 const { ccclass, property } = _decorator;
@@ -33,6 +33,9 @@ export class Resgister extends Component {
     {
         const loading = instantiate(this.loading);
         loading.setParent(this.canvas);
+        const lowercaseLogin = this._login.toLowerCase();
+        const lowercasePassword = this._password.toLowerCase();
+
 
         await fetch(`${UserDataStore.instance.URL_API}/api/register`, {
             method: "POST",
@@ -40,8 +43,8 @@ export class Resgister extends Component {
                 "Content-Type": "application/json"
               },
               body: JSON.stringify({
-                username: this._login,
-                password: this._password,
+                username: lowercaseLogin,
+                password: lowercasePassword,
                 phone: this._phone,
                 account_type: 0
             })
@@ -72,8 +75,7 @@ export class Resgister extends Component {
                 notiMessage.destroy();
             },1)
             this.scheduleOnce(() => {
-                loading.destroy();
-                director.loadScene("scene");
+                this.LoginReq(loading);
             },1)
 
         })
@@ -81,6 +83,46 @@ export class Resgister extends Component {
             console.log('Request failed', error);
         });
     }
+    async LoginReq(loading: Node) {
+        const lowercaseLogin = this._login.toLowerCase();
+        const lowercasePassword = this._password.toLowerCase();
+
+        try {
+            const response = await fetch(`${UserDataStore.instance.URL_API}/api/login`, {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json"
+                },
+                body: JSON.stringify({
+                    login: lowercaseLogin,
+                    password: lowercasePassword
+                })
+            });
+    
+            if (!response.ok) {
+                const errorData = await response.json();
+                const errorMessage = errorData.error || 'An unknown error occurred';
+                throw new Error(`HTTP error! status: ${response.status}, message: ${errorMessage}`);
+            }
+    
+            const data = await response.json();
+            console.log('Login successful:', data);
+    
+            const expiryTime = new Date().getTime() + (24 * 60 * 60 * 1000);
+            Cokkies.setCookie("token", data.access_token, 1);
+            Cokkies.setCookie("tokenExpiry", expiryTime.toString(), 1);
+            
+            sys.localStorage.setItem('savedLogin', lowercaseLogin);
+            sys.localStorage.setItem('savedPassword', lowercasePassword);
+            loading.destroy();
+            director.loadScene("scene");
+
+       
+        } catch (error) {
+            console.error('Login failed:', error);
+        } 
+    }
+
     public nextSceneLogin()
     {
         director.loadScene("Login");
