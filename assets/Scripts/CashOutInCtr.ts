@@ -65,10 +65,16 @@ export class CashOutInCtr extends Component {
     rate: Label;
     @property({type: Label})
     rateCashOut: Label;
+    @property({type: Label})
+    labelAccountCashIn: Label;
+    @property({type: Label})
+    labelAccountCashOut: Label;
     
     start() {
 
         this.OptionBanks.active = false;
+        this.labelAccountCashIn.string = UserDataStore.instance.data.account;
+        this.labelAccountCashOut.string = UserDataStore.instance.data.account;
         this.CheckCashCashOut();
         this.CheckRate();
         
@@ -306,7 +312,7 @@ export class CashOutInCtr extends Component {
                 "Authorization": `Bearer ${Cokkies.getCookie("token")}`
             },
             body: JSON.stringify({
-                "user_account" : this._account,
+                "user_account" : this.labelAccountCashIn.string,
                 "bank_account_receiver": this._stkAdmin,
                 "amount": this._amount_send,
                 "name_user": this.name_ctk.string,
@@ -358,7 +364,7 @@ export class CashOutInCtr extends Component {
                 "Authorization": `Bearer ${Cokkies.getCookie("token")}`
             },
             body: JSON.stringify({
-                "user_account" : this._account,
+                "user_account" : this.labelAccountCashOut.string,
                 "bank_account_receiver": this._stkAdmin,
                 "amount": this._amount_send,
                 "name_user": this._userSend,
@@ -404,6 +410,8 @@ export class CashOutInCtr extends Component {
         if(customEventData == "1")
         {
             this.typeCash = 1;
+            this.labelAccountCashIn.string = UserDataStore.instance.data.account;
+
             this.cashInButton.getComponent(Sprite).spriteFrame = this.chooseCash;
             this.cashOutButton.getComponent(Sprite).spriteFrame = this.notChooseCash;
             this.groupFormCashIn.active = true;
@@ -416,6 +424,9 @@ export class CashOutInCtr extends Component {
         }
         else{
             this.typeCash = 2;
+            this.labelAccountCashOut.string = UserDataStore.instance.data.account;
+
+
             this.cashOutButton.getComponent(Sprite).spriteFrame = this.chooseCash;
             this.cashInButton.getComponent(Sprite).spriteFrame = this.notChooseCash;
             this.groupFormCashIn.active = false;

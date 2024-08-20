@@ -47,6 +47,9 @@ export class HomeController extends Component {
                 })
                 .then(response => {
                     if (!response.ok) {
+                        Cokkies.eraseCookie("token");
+                        Cokkies.eraseCookie("tokenExpiry");
+                        director.loadScene("scene");          
                         throw new Error('Network response was not ok');
                     }
                     return response.json();
@@ -119,6 +122,7 @@ export class HomeController extends Component {
     {
         Cokkies.eraseCookie("token");
         Cokkies.eraseCookie("tokenExpiry");
+        UserDataStore.instance.resetAllData();
         director.loadScene("scene");
 
     }

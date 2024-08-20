@@ -103,6 +103,13 @@ export class UserDataStore extends Component {
     public getDataRate(): ChangeRate | null {
         return this.dataRate;
     }
+    public resetAllData(): void {
+        this.data = null;
+        this.dataBankFt88 = [];
+        this.dataBank = [];
+        this.dataHistory = [];
+        this.dataRate = null;
+    }
     
 }
 

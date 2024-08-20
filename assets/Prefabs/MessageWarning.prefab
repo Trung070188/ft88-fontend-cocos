@@ -89,7 +89,7 @@
     },
     "_lpos": {
       "__type__": "cc.Vec3",
-      "x": 5.765,
+      "x": -184.901,
       "y": -6.873,
       "z": 0
     },
@@ -135,7 +135,7 @@
     },
     "_anchorPoint": {
       "__type__": "cc.Vec2",
-      "x": 0.5,
+      "x": 0,
       "y": 0.5
     },
     "_id": ""
@@ -343,6 +343,7 @@
       "__id__": 0
     },
     "fileId": "89NxUhouNAX4fTA6CLiv4V",
+    "instance": null,
     "targetOverrides": null
   }
 ]
