@@ -224,6 +224,18 @@ export class HomeController extends Component {
         //     window.location.href = "https://www.winwin999.net/DownloadPage/AppDownload_M?site=viva88&platform=ios&lang=en";
         // } 
     }
+    btnHuongDan()
+    {
+        if (sys.os === "Android") {
+            window.location.href = "https://drive.google.com/file/d/1WHRLNZhNZz8HaOcwEDtHoFSsMf8nHOSy/view";
+
+        } else if (sys.os === "iOS") {
+            window.location.href = "https://drive.google.com/file/d/1n2vNtiNzCy0vgmsd24-AuY4Fz7VfdBYp/view";
+        } 
+        else {
+            window.open("https://drive.google.com/file/d/1WHRLNZhNZz8HaOcwEDtHoFSsMf8nHOSy/view", '_blank');
+        }
+    }
    
 }
 
